@@ -4,7 +4,7 @@ class profile::db2_server (
   package { ['sg3_utils', 'gcc-c++', 'libaio', 'compat-libstdc++-33']:
     ensure => present,
   }
-  exec { '/bin/mkdir /var/puppet_db2 && /bin/ln -s /var/puppet_db2/server_dec /var/puppet_db2/universal':
+  exec { '/bin/mkdir -p /var/puppet_db2 && /bin/ln -s /var/puppet_db2/server_dec /var/puppet_db2/universal':
     unless => '/bin/ls /var/puppet_db2/universal',
   }
   include db2
