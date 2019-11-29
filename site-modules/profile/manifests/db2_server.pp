@@ -4,6 +4,9 @@ class profile::db2_server (
   package { ['sg3_utils', 'gcc-c++', 'libaio', 'compat-libstdc++-33']:
     ensure => present,
   }
+  exec { 'mkdir /var/puppet_db2 && ln -s /var/puppet_db2/server_dec /var/puppet_db2/universal':
+    unless => 'ls /var/puppet_db2/universal',
+  }
   include db2
   db2::install { '11.1':
     source     => 'file:///media/db2/v11.1_linuxx64_dec.tar.gz',
