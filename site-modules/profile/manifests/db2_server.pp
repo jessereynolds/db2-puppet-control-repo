@@ -1,6 +1,9 @@
 # db2_server preofile
 class profile::db2_server (
 ) {
+  package { ['sg3_utils', 'gcc-c++', 'libaio', 'compat-libstdc++-33']:
+    ensure => present,
+  }
   include db2
   db2::install { '11.1':
     source     => 'file:///media/db2/v11.1_linuxx64_dec.tar.gz',
