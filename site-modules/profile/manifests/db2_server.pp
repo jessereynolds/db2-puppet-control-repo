@@ -1,13 +1,17 @@
 # db2_server preofile
 class profile::db2_server (
 ) {
+
   package { ['sg3_utils', 'gcc-c++', 'libaio', 'compat-libstdc++-33']:
     ensure => present,
   }
+
   exec { '/bin/mkdir -p /var/puppet_db2 && /bin/ln -s /var/puppet_db2/server_dec /var/puppet_db2/universal':
     unless => '/bin/ls /var/puppet_db2/universal',
   }
+
   include db2
+
   db2::install { '11.1':
     source     => 'file:///media/db2/v11.1_linuxx64_dec.tar.gz',
     components => [
@@ -21,5 +25,11 @@ class profile::db2_server (
       'COMMUNICATION_SUPPORT_TCPIP'
     ],
     license_content => template('db2/license/trial.lic'),
+  }
+
+  db2::instance { 'db2inst1':
+    fence_user        => 'db2fenc1',
+    installation_root => '/opt/ibm/db2/V11.1',
+    require           => Db2::Install['11.1'],
   }
 }
