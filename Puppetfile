@@ -9,6 +9,7 @@ forge 'https://forge.puppet.com'
 mod "crayfishx/db2", "1.3.1"
 mod 'puppetlabs-stdlib', '4.25.1'
 mod 'puppet-archive', '1.3.0'
+mod 'trlinkin/noop'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples

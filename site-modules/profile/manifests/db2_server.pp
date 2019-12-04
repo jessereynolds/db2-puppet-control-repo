@@ -32,4 +32,5 @@ class profile::db2_server (
     installation_root => '/opt/ibm/db2/V11.1',
     require           => Db2::Install['11.1'],
   }
+  
 }
