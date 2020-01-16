@@ -19,7 +19,7 @@ mod 'puppetlabs/translate', '2.1.0'
 #   git:    'https://github.com/jessereynolds/wasthis.git',
 #   branch: 'md5_mac'
 
-mod 'puppetlabs-ibm_websphere_application_server',
+mod 'puppetlabs-websphere_application_server',
  git:    'https://github.com/puppetlabs/puppetlabs-websphere_application_server.git',
  branch: 'bolt_repo_plan'
     
